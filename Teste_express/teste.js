@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const sequelize = new Sequelize('banco_teste'/**nome do banco */, 'postgres'/** nome do usuario*/, 'samuca2080#'/**senha do usuario */, {
+const sequelize = new Sequelize('banco_teste'/**nome do banco */, 'postgres'/** nome do usuario*/, 'senha'/**senha do usuario */, {
     host: "localhost"/**loca que a máquina do db está */,
     dialect: "postgres"/**db que está sendo usado */
 })
