@@ -1,14 +1,18 @@
 const express = require("express");
 const app = express();
-const handlebars = require('express-handlebars')
+const handlebars = require('express-handlebars');
+const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 
 //config
     //template engine
         app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
         app.set('view engine', 'handlebars')
+    //Body Parser
+        app.use(bodyParser.urlencoded({extended: false}))
+        app.use(bodyParser.json())
     // Conexão com o banco de dados postgresql
-    const sequelize = new Sequelize('banco_teste'/**nome do banco */, 'postgres'/** nome do usuario*/, 'samuca2080#'/**senha do usuario */, {
+    const sequelize = new Sequelize('teste_conexao'/**nome do banco */, 'postgres'/** nome do usuario*/, 'setic2022#'/**senha do usuario */, {
         host: "localhost"/**loca que a máquina do db está */,
         dialect: "postgres"/**db que está sendo usado */
     });
@@ -19,6 +23,7 @@ app.get('/cad', function(req, res){
 });
 
 app.post('/add', function(req, res){
+    req.body.conteudo
     res.send('FORMULARIO RECEBIDO!')
 })
 
