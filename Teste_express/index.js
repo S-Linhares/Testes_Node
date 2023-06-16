@@ -32,7 +32,7 @@ app.get('/cad', function(req, res){
     res.render('formulario');
 });
 
-app.get('/deletar/:id', function(req, res){
+app.get('/deletar/:id', function(req, res){ //DELETE
     Post.destroy({where: {'id': req.params.id}}).then(function(){
         res.redirect('/');
     }).catch(function(erro){
@@ -40,7 +40,7 @@ app.get('/deletar/:id', function(req, res){
     });
 });
 
-app.post('/add', function(req, res){
+app.post('/add', function(req, res){ //INSER INTO
     Post.create({
         titulo: req.body.titulo,
         conteudo: req.body.conteudo
